@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PlaySolana Token Estimator</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8fafc;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 { color: #1e40af; }
+    form {
+      background: white;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    input {
+      display: block;
+      width: 300px;
+      padding: 10px;
+      margin: 10px auto;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    button:hover { background: #1d4ed8; }
+    .result {
+      background: #ecfdf5;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <h1>PlaySolana Token Estimator</h1>
+  <form method="post">
+    <input type="text" name="wallet_address" placeholder="Wallet Address" required>
+    <input type="text" name="playdex_name" placeholder="Playdex Name" required>
+    <button type="submit">Calculate</button>
+  </form>
+
+  {% if result %}
+  <div class="result">
+    <h3>Result:</h3>
+    <p><strong>Airdrop Tokens:</strong> {{ result.airdrop_tokens | round(2) }}</p>
+    <p><strong>XP Tokens:</strong> {{ result.xp_tokens | round(2) }}</p>
+    <p><strong>Total Tokens:</strong> <b>{{ result.total_tokens | round(2) }}</b></p>
+  </div>
+  {% endif %}
+</body>
+</html>

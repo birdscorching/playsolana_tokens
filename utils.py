@@ -99,8 +99,6 @@ def calculate_tokens(wallet_address: str, playdex_name: str) -> float:
     airdrop_pts = user_psg / psg_holders * airdrop_tokens
     xp_pts = total_user_xp / total_xp * xp_tokens
     return {
-        "wallet_address": wallet_address,
-        "playdex_name": playdex_name,
         'airdrop_tokens': airdrop_pts,
         'xp_tokens': xp_pts,
         'total_tokens': airdrop_pts + xp_pts
