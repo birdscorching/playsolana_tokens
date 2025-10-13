@@ -42,6 +42,10 @@
       padding: 20px;
       margin-top: 20px;
       display: inline-block;
+      text-align: left;
+    }
+    .result p {
+      margin: 6px 0;
     }
   </style>
 </head>
@@ -58,6 +62,8 @@
     <h3>Result:</h3>
     <p><strong>Airdrop Tokens:</strong> {{ result.airdrop_tokens | round(2) }}</p>
     <p><strong>XP Tokens:</strong> {{ result.xp_tokens | round(2) }}</p>
+    <p><strong>Presale Tokens:</strong> {{ result.presale_tokens | round(2) }}</p>
+    <hr>
     <p><strong>Total Tokens:</strong> <b>{{ result.total_tokens | round(2) }}</b></p>
   </div>
   {% endif %}
