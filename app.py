@@ -1,8 +1,11 @@
+import threading
 from fastapi import FastAPI, Form, Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
-from utils import calculate_tokens
+from utils import calculate_tokens, get_signs_dict
+
+
 
 app = FastAPI(
     title="PlaySolana Token Estimator",
@@ -17,6 +20,10 @@ class UserInput(BaseModel):
     wallet_address: str
     playdex_name: str
 
+@app.on_event("startup")
+def preload_signatures():
+    # выполняется в фоне при запуске API
+    threading.Thread(target=get_signs_dict, daemon=True).start()
 
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request):
