@@ -17,6 +17,7 @@ PRICES = {
     RECEIVER_COM: 0.016,
     RECEIVER_GEN: 0.02
 }
+SIGNS_DICT = {}
 
 
 def get_tx_signatures(wallet: str, limit=100, before: str = None):
