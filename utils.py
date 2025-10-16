@@ -1,5 +1,7 @@
 import requests
 from time import sleep
+import logging
+logger = logging.getLogger(__name__)
 
 
 
@@ -173,6 +175,8 @@ def calculate_tokens(wallet_address: str, playdex_name: str) -> float:
     user_p1, user_p2, user_psg = prepare_user_col_stats(
         wallet_address=wallet_address
     )
+    logger.info(f'User {playdex_name} owns {user_p1} Player1 and {user_p2} Player2')
+
     user_nft_xp = get_nft_xp(p1_num=user_p1, p2_num=user_p2)
     user_playdex_xp = users_xp_dict.get(playdex_name, 0)
     total_user_xp = user_nft_xp + user_playdex_xp
