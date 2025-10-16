@@ -2,6 +2,7 @@ import requests
 from time import sleep
 import logging
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 
 
